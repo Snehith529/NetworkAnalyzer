@@ -1,5 +1,4 @@
 import pandas as pd
-import numpy as np
 import pyshark
 import sys
 
@@ -33,11 +32,11 @@ class NetworkTrafficAnalyzer:
         df = pd.DataFrame(data)
         print("Traffic Analysis:")
         print(df.head())
+        return df
 
-    def save_analysis(self, filename="traffic_analysis.csv"):
+    def save_analysis(self, dataframe,filename="traffic_analysis.cs
         print(f"Saving analysis to {filename}")
-        df = pd.DataFrame(self.capture)
-        df.to_csv(filename, index=False)
+        dataframe.to_csv(filename, index=False)
         print("File saved.")
 
 
@@ -49,5 +48,5 @@ if __name__ == "__main__":
     interface = sys.argv[1]
     analyzer = NetworkTrafficAnalyzer(interface)
     analyzer.start_capture()
-    analyzer.analyze_traffic()
-    analyzer.save_analysis()
+    df  = analyzer.analyze_traffic()
+    analyzer.save_analysis(df)
