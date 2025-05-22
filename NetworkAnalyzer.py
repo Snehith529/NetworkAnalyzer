@@ -34,7 +34,7 @@ class NetworkTrafficAnalyzer:
         print(df.head())
         return df
 
-    def save_analysis(self, dataframe,filename="traffic_analysis.cs
+    def save_analysis(self, dataframe,filename="traffic_analysis.csv"):
         print(f"Saving analysis to {filename}")
         dataframe.to_csv(filename, index=False)
         print("File saved.")
